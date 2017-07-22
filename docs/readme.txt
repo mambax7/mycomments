@@ -38,6 +38,6 @@ Feedback
 ========
 
 Please use www.xoops.org forums.
-Later I´ll give support at www.xuups.com (xoops user utilities)
+Later IÂ´ll give support at www.xuups.com (xoops user utilities)
 
 
