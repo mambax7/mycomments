@@ -16,13 +16,8 @@ $modversion['license_url']   = 'www.gnu.org/licenses/gpl-2.0.html';
 $modversion['official']      = 0; //1 indicates supported by XOOPS Dev Team, 0 means 3rd party supported
 $modversion['image']         = 'assets/images/logoModule.png';
 $modversion['dirname']       = basename(__DIR__);
-//$modversion['dirmoduleadmin'] = '/Frameworks/moduleclasses/moduleadmin';
-//$modversion['icons16']        = '../../Frameworks/moduleclasses/icons/16';
-//$modversion['icons32']        = '../../Frameworks/moduleclasses/icons/32';
 $modversion['modicons16'] = 'assets/images/icons/16';
 $modversion['modicons32'] = 'assets/images/icons/32';
-
-//about
 $modversion['module_website_url']  = 'www.xoops.org';
 $modversion['module_website_name'] = 'XOOPS';
 $modversion['min_php']             = '5.5';
@@ -44,6 +39,13 @@ $modversion['hasSearch']      = 1;
 $modversion['search']['file'] = 'include/search.inc.php';
 $modversion['search']['func'] = 'mycomments_search';
 
+// ------------------- Help files ------------------- //
+$modversion['helpsection'] = array(
+    ['name' => _MI_MYCOM_OVERVIEW, 'link' => 'page=help'],
+    ['name' => _MI_MYCOM_DISCLAIMER, 'link' => 'page=disclaimer'],
+    ['name' => _MI_MYCOM_LICENSE, 'link' => 'page=license'],
+    ['name' => _MI_MYCOM_SUPPORT, 'link' => 'page=support'],
+);
 // Templates
 $i = 0;
 ++$i;

@@ -20,3 +20,16 @@ define('_MI_MYCOM_DISPLAYNAME2', 'Real name');
 
 define('_MI_MYCOM_COMNUM', 'Comments per page');
 define('_MI_MYCOM_COMNUM_DSC', 'Set the default number of comments per page');
+
+//Help
+define('_MI_MYCOM_DIRNAME', basename(dirname(dirname(__DIR__))));
+define('_MI_MYCOM_HELP_HEADER', __DIR__.'/help/helpheader.tpl');
+define('_MI_MYCOM_BACK_2_ADMIN', 'Back to Administration of ');
+define('_MI_MYCOM_OVERVIEW', 'Overview');
+
+//define('_MI_MYCOM_HELP_DIR', __DIR__);
+
+//help multi-page
+define('_MI_MYCOM_DISCLAIMER', 'Disclaimer');
+define('_MI_MYCOM_LICENSE', 'License');
+define('_MI_MYCOM_SUPPORT', 'Support');
