@@ -12,7 +12,7 @@
 function news_useritems($uid, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret = array();
+    $ret = [];
 
     $sql    = 'SELECT storyid FROM ' . $xoopsDB->prefix('news_stories') . ' WHERE published>0 AND published<=' . time() . ' AND uid=' . $uid;
     $result = $xoopsDB->query($sql, $limit, $offset);
@@ -34,7 +34,7 @@ function news_useritems($uid, $limit = 0, $offset = 0)
 function news_iteminfo($items, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret     = array();
+    $ret     = [];
     $URL_MOD = XOOPS_URL . '/modules/news';
 
     $sql    = 'SELECT s.storyid, s.title, s.published, s.hometext, s.nohtml, s.nosmiley, s.created, s.uid, s.counter, s.comments, t.topic_id, t.topic_title

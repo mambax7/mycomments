@@ -23,7 +23,7 @@ $modversion['module_website_name'] = 'XOOPS';
 $modversion['min_php']             = '5.5';
 $modversion['min_xoops']           = '2.5.9';
 $modversion['min_admin']           = '1.2';
-$modversion['min_db']              = array('mysql' => '5.5');
+$modversion['min_db']              = ['mysql' => '5.5'];
 
 // Admin things
 $modversion['hasAdmin']   = 1;
@@ -40,12 +40,12 @@ $modversion['search']['file'] = 'include/search.inc.php';
 $modversion['search']['func'] = 'mycomments_search';
 
 // ------------------- Help files ------------------- //
-$modversion['helpsection'] = array(
+$modversion['helpsection'] = [
     ['name' => _MI_MYCOM_OVERVIEW, 'link' => 'page=help'],
     ['name' => _MI_MYCOM_DISCLAIMER, 'link' => 'page=disclaimer'],
     ['name' => _MI_MYCOM_LICENSE, 'link' => 'page=license'],
     ['name' => _MI_MYCOM_SUPPORT, 'link' => 'page=support'],
-);
+];
 // Templates
 $i = 0;
 ++$i;
@@ -100,7 +100,7 @@ $modversion['config'][$i]['description'] = '_MI_MYCOM_NAMEDISPLAY_DSC';
 $modversion['config'][$i]['formtype']    = 'select';
 $modversion['config'][$i]['valuetype']   = 'int';
 $modversion['config'][$i]['default']     = 1;
-$modversion['config'][$i]['options']     = array('_MI_MYCOM_DISPLAYNAME1' => 1, '_MI_MYCOM_DISPLAYNAME2' => 2);
+$modversion['config'][$i]['options']     = ['_MI_MYCOM_DISPLAYNAME1' => 1, '_MI_MYCOM_DISPLAYNAME2' => 2];
 
 /**
  * Number of coments per page ?
@@ -112,4 +112,4 @@ $modversion['config'][$i]['description'] = '_MI_MYCOM_COMNUM_DSC';
 $modversion['config'][$i]['formtype']    = 'select';
 $modversion['config'][$i]['valuetype']   = 'int';
 $modversion['config'][$i]['default']     = 10;
-$modversion['config'][$i]['options']     = array('5' => 5, '10' => 10, '20' => 20, '50' => 50, '100' => 100);
+$modversion['config'][$i]['options']     = ['5' => 5, '10' => 10, '20' => 20, '50' => 50, '100' => 100];

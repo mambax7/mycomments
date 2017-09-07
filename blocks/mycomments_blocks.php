@@ -9,7 +9,7 @@
  */
 function b_mycomments_show($options)
 {
-    $block = array();
+    $block = [];
     require_once XOOPS_ROOT_PATH . '/modules/mycomments/include/comment_constants.php';
     $commentHandler = xoops_getModuleHandler('comment', 'mycomments');
     $criteria       = new CriteriaCompo(new Criteria('com_status', MYCOM_ACTIVE));
@@ -20,11 +20,11 @@ function b_mycomments_show($options)
     // Check modules permissions
     global $xoopsUser;
     $modulepermHandler = xoops_getHandler('groupperm');
-    $gperm_groupid     = is_object($xoopsUser) ? $xoopsUser->getGroups() : array(XOOPS_GROUP_ANONYMOUS);
+    $gperm_groupid     = is_object($xoopsUser) ? $xoopsUser->getGroups() : [XOOPS_GROUP_ANONYMOUS];
     $criteria1         = new CriteriaCompo(new Criteria('gperm_name', 'module_read', '='));
     $criteria1->add(new Criteria('gperm_groupid', '(' . implode(',', $gperm_groupid) . ')', 'IN'));
     $perms  = $modulepermHandler->getObjects($criteria1, true);
-    $modIds = array();
+    $modIds = [];
     foreach ($perms as $item) {
         $modIds[] = $item->getVar('gperm_itemid');
     }
@@ -39,7 +39,7 @@ function b_mycomments_show($options)
     /** @var XoopsModuleHandler $moduleHandler */
     $moduleHandler  = xoops_getHandler('module');
     $modules        = $moduleHandler->getObjects(new Criteria('hascomments', 1), true);
-    $comment_config = array();
+    $comment_config = [];
     foreach (array_keys($comments) as $i) {
         $mid           = $comments[$i]->getVar('com_modid');
         $com['module'] = '<a href="' . XOOPS_URL . '/modules/' . $modules[$mid]->getVar('dirname') . '/">' . $modules[$mid]->getVar('name') . '</a>';
@@ -109,7 +109,7 @@ function b_mycomments2_show($options)
     global $xoopsUser;
     require_once XOOPS_ROOT_PATH . '/modules/mycomments/include/comment_constants.php';
     $limit = 10; // If you  are not getting suficient results, please increase a little more this number
-    $block = $comment_config = $trackedItems = array();
+    $block = $comment_config = $trackedItems = [];
 
     $commentHandler    = xoops_getModuleHandler('comment', 'mycomments');
     $modulepermHandler = xoops_getHandler('groupperm');
@@ -191,18 +191,18 @@ function b_mycomments2_show($options)
             }
             if (!$itemMatch) {
                 $block['comments'][] =& $com;
-                $trackedItems[]      = array(
+                $trackedItems[]      = [
                     'modid'  => $comments[$i]->getVar('com_modid'),
                     'itemid' => $comments[$i]->getVar('com_itemid')
-                );
+                ];
                 ++$count;
             }
         } else {
             $block['comments'][] =& $com;
-            $trackedItems[]      = array(
+            $trackedItems[]      = [
                 'modid'  => $comments[$i]->getVar('com_modid'),
                 'itemid' => $comments[$i]->getVar('com_itemid')
-            );
+            ];
             ++$count;
         }
         unset($com);

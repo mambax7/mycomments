@@ -34,11 +34,11 @@ class MycommentsCommentRenderer
         $this->_useIcons      = $use_icons;
         $this->_doIconCheck   = $do_iconcheck;
         $this->_memberHandler = xoops_getHandler('member');
-        $this->_statusText    = array(
+        $this->_statusText    = [
             MYCOM_PENDING => '<span style="text-decoration: none; font-weight: bold; color: #00ff00;">' . _MA_MYCOM_PENDING . '</span>',
             MYCOM_ACTIVE  => '<span style="text-decoration: none; font-weight: bold; color: #ff0000;">' . _MA_MYCOM_ACTIVE . '</span>',
             MYCOM_HIDDEN  => '<span style="text-decoration: none; font-weight: bold; color: #0000ff;">' . _MA_MYCOM_HIDDEN . '</span>'
-        );
+        ];
     }
 
     /**
@@ -108,7 +108,7 @@ class MycommentsCommentRenderer
             }
             $array[0] = $this->_comments[$i]->getVar('com_itemid');
             $item     = mycomments_plugin_execute($this->_comments[$i]->getVar('dirname'), $array/*$this->_comments[$i]->getVar('com_itemid')*/, 'iteminfo');
-            $this->_tpl->append('comments', array(
+            $this->_tpl->append('comments', [
                 'id'                 => $this->_comments[$i]->getVar('com_id'),
                 'title'              => $title,
                 'text'               => $text,
@@ -122,7 +122,7 @@ class MycommentsCommentRenderer
                 'deletecomment_link' => XOOPS_URL . '/modules/' . $this->_comments[$i]->getVar('dirname') . '/comment_delete.php?com_itemid=' . $this->_comments[$i]->getVar('com_itemid'),
                 'replycomment_link'  => XOOPS_URL . '/modules/' . $this->_comments[$i]->getVar('dirname') . '/comment_reply.php?com_itemid=' . $this->_comments[$i]->getVar('com_itemid'),
                 'poster'             => $poster
-            ));
+            ]);
         }
     }
 

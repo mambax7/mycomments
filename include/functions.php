@@ -13,7 +13,7 @@ function mycomments_plugin_execute($dirname, $items, $func = 'useritems')
 {
     global $xoopsUser, $xoopsConfig, $xoopsDB;
 
-    $ret          = array();
+    $ret          = [];
     $plugins_path = XOOPS_ROOT_PATH . '/modules/mycomments/plugins';
 
     $plugin_info = mycomments_get_plugin_info($dirname, $func);
@@ -53,27 +53,27 @@ function mycomments_get_plugin_info($dirname, $func = 'useritems')
 
     if (file_exists($module_plugin_file)) {
         // module side (1st priority)
-        $ret = array(
+        $ret = [
             'plugin_path' => $module_plugin_file,
             'func'        => $dirname . '_' . $func,
             'type'        => 'module'
-        );
+        ];
     } elseif (!empty($mytrustdirname) && file_exists($d3module_plugin_file)) {
         // D3 module's plugin under xoops_trust_path (2nd priority)
-        $ret = array(
+        $ret = [
             'plugin_path' => $d3module_plugin_file,
             'func'        => $mytrustdirname . '_' . $func,
             'type'        => 'module (D3)'
-        );
+        ];
     } elseif (file_exists($builtin_plugin_file)) {
         // built-in plugin under modules/mycomments (3rd priority)
-        $ret = array(
+        $ret = [
             'plugin_path' => $builtin_plugin_file,
             'func'        => $dirname . '_' . $func,
             'type'        => 'built-in'
-        );
+        ];
     } else {
-        $ret = array();
+        $ret = [];
     }
 
     return $ret;
@@ -122,7 +122,7 @@ function mycomments_advanced_search($queryarray, $andor, $limit, $offset, $useri
     $moduleHandler = xoops_getHandler('module');
     $modules       = $moduleHandler->getObjects(new Criteria('hascomments', 1), true);
 
-    $ret = array();
+    $ret = [];
     $i   = 0;
     while ($myrow = $xoopsDB->fetchArray($result)) {
         $id_as_key = false;

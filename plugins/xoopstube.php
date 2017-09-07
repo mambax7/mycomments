@@ -12,7 +12,7 @@
 function xoopstube_useritems($uid, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret = array();
+    $ret = [];
 
     $sql    = 'SELECT lid
     FROM ' . $xoopsDB->prefix('xoopstube_videos') . '
@@ -39,7 +39,7 @@ function xoopstube_useritems($uid, $limit = 0, $offset = 0)
 function xoopstube_iteminfo($items, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret     = array();
+    $ret     = [];
     $URL_MOD = XOOPS_URL . '/modules/xoopstube';
 
     $sql    = 'SELECT v.lid, v.cid, v.submitter, v.title, v.hits, v.comments, v.published, v.expired, v.offline, c.title AS cat_title, c.description

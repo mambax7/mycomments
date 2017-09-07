@@ -12,7 +12,7 @@
 function publisher_useritems($uid, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret = array();
+    $ret = [];
 
     $sql    = 'SELECT itemid FROM ' . $xoopsDB->prefix('publisher_items') . ' WHERE datesub>0 AND datesub<=' . time() . ' AND uid=' . $uid;
     $result = $xoopsDB->query($sql, $limit, $offset);
@@ -34,7 +34,7 @@ function publisher_useritems($uid, $limit = 0, $offset = 0)
 function publisher_iteminfo($items, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret     = array();
+    $ret     = [];
     $URL_MOD = XOOPS_URL . '/modules/publisher';
 
     $sql    = 'SELECT s.itemid, s.title, s.datesub, s.body, s.uid, s.counter, s.comments, t.categoryid, t.name

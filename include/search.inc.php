@@ -35,7 +35,7 @@ function mycomments_search($queryarray, $andor, $limit, $offset, $userid)
     $moduleHandler = xoops_getHandler('module');
     $modules       = $moduleHandler->getObjects(new Criteria('hascomments', 1), true);
 
-    $ret = array();
+    $ret = [];
     $i   = 0;
     while ($myrow = $xoopsDB->fetchArray($result)) {
         $com_id     = $myrow['com_id'];
@@ -44,7 +44,7 @@ function mycomments_search($queryarray, $andor, $limit, $offset, $userid)
         $com_rootid = $myrow['com_rootid'];
         $com_itemid = $myrow['com_itemid'];
 
-        $comment_config = array();
+        $comment_config = [];
         $comment_config = $modules[$com_modid]->getInfo('comments');
 
         $link = '../' . $modules[$com_modid]->getVar('dirname') . '/';

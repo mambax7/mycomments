@@ -12,7 +12,7 @@
 function mylinks_useritems($uid, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret = array();
+    $ret = [];
 
     $sql    = 'SELECT lid, title, date
     FROM ' . $xoopsDB->prefix('mylinks_links') . '
@@ -39,7 +39,7 @@ function mylinks_useritems($uid, $limit = 0, $offset = 0)
 function mylinks_iteminfo($items, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret     = array();
+    $ret     = [];
     $URL_MOD = XOOPS_URL . '/modules/mylinks';
 
     $sql    = 'SELECT l.lid, l.title AS ltitle, l.date, l.cid, l.submitter, l.hits, l.comments, t.description, c.title AS ctitle

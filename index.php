@@ -18,12 +18,12 @@ $start = isset($_GET['start']) ? (int)$_GET['start'] : 0;
 $mid   = isset($_GET['mid']) ? (int)$_GET['mid'] : 0;
 
 $d_view     = 0; //set 0 for default comments recieved or 1 for default comments sent
-$view_array = array('0' => _MA_MYCOM_COM_RECIEVED, '1' => _MA_MYCOM_COM_SENT);
+$view_array = ['0' => _MA_MYCOM_COM_RECIEVED, '1' => _MA_MYCOM_COM_SENT];
 $view       = (isset($_GET['view'])
                && array_key_exists((int)$_GET['view'], $view_array)) ? (int)$_GET['view'] : $d_view;
 
 $d_limit     = $xoopsModuleConfig['comnum'];
-$limit_array = array('5' => 5, '10' => 10, '20' => 20, '50' => 50, '100' => 100);
+$limit_array = ['5' => 5, '10' => 10, '20' => 20, '50' => 50, '100' => 100];
 $limit       = (isset($_GET['limit'])
                 && array_key_exists((int)$_GET['limit'], $limit_array)) ? (int)$_GET['limit'] : $d_limit;
 
@@ -74,7 +74,7 @@ $criteria2 = new CriteriaCompo();
 foreach ($modules as $moduleid => $module) {
     //for comments recieved
     if ($view == 0) {
-        $items = array();
+        $items = [];
         $items = mycomments_plugin_execute($module->getVar('dirname'), $uid, 'useritems');
         if (is_array($items) && count($items) > 0) {
             $items    = '(' . implode(',', $items) . ')';
@@ -89,7 +89,7 @@ foreach ($modules as $moduleid => $module) {
         unset($items);
         //for comments sent
     } else {
-        $items = array();
+        $items = [];
         $items = mycomments_get_plugin_info($module->getVar('dirname'), 'useritems');
         if (is_array($items) && count($items) > 0) {
             $dirname  = $module->getVar('dirname');
@@ -128,7 +128,7 @@ $xoopsTpl->assign('com_count', sprintf($count_string, $com_count));
 $com_order = $com_mode = $link_extra = '';
 
 // assign some lang variables
-$xoopsTpl->assign(array(
+$xoopsTpl->assign([
                       'lang_from'    => _MA_MYCOM_FROM,
                       'lang_joined'  => _MA_MYCOM_JOINED,
                       'lang_posts'   => _MA_MYCOM_POSTS,
@@ -141,18 +141,18 @@ $xoopsTpl->assign(array(
                       'lang_posted'  => _MA_MYCOM_POSTED,
                       'lang_updated' => _MA_MYCOM_UPDATED,
                       'lang_notice'  => _MA_MYCOM_NOTICE
-                  ));
+                  ]);
 
 //For the navbar, get all modules that have plugins
 
-$mod_array = array();
+$mod_array = [];
 //Lets save a query, if no $mid is set then we already have $modules correctly populated
 if ($mid > 0) {
     $modules = $moduleHandler->getObjects(new Criteria('hascomments', 1), true);
 }
 
 foreach ($modules as $moduleid => $module) {
-    $items = array();
+    $items = [];
     $items = mycomments_get_plugin_info($module->getVar('dirname'), 'useritems');
     if (is_array($items) && count($items) > 0) {
         $mod_array[$module->getVar('mid')] = $module->getVar('name');

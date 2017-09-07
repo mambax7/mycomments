@@ -12,7 +12,7 @@
 function mydownloads_useritems($uid, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret = array();
+    $ret = [];
 
     $sql    = 'SELECT lid, title, date
     FROM ' . $xoopsDB->prefix('mydownloads_downloads') . '
@@ -39,7 +39,7 @@ function mydownloads_useritems($uid, $limit = 0, $offset = 0)
 function mydownloads_iteminfo($items, $limit = 0, $offset = 0)
 {
     global $xoopsDB;
-    $ret     = array();
+    $ret     = [];
     $URL_MOD = XOOPS_URL . '/modules/mydownloads';
 
     $sql    = 'SELECT d.lid, d.title AS dtitle, d.date, d.cid, d.submitter, d.hits, t.description, c.title AS ctitle
