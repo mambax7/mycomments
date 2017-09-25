@@ -15,7 +15,7 @@ function mycomments_search($queryarray, $andor, $limit, $offset, $userid)
 {
     global $xoopsDB;
     $sql = 'SELECT com_id, com_pid, com_rootid, com_modid, com_itemid, com_created, com_uid, com_title, com_text, com_status FROM ' . $xoopsDB->prefix('xoopscomments') . ' WHERE com_id>0 ';
-    if ($userid != 0) {
+    if (0 != $userid) {
         $sql .= ' AND com_uid=' . $userid . ' ';
     }
     // because count() returns 1 even if a supplied variable

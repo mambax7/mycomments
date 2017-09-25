@@ -94,10 +94,10 @@ function mycomments_advanced_search($queryarray, $andor, $limit, $offset, $useri
     global $xoopsDB;
     require_once XOOPS_ROOT_PATH . '/modules/mycomments/class/comment.php';
     $sql = 'SELECT * FROM ' . $xoopsDB->prefix('xoopscomments') . ' WHERE com_id>0 ';
-    if ($moduleid != 0) {
+    if (0 != $moduleid) {
         $sql .= ' AND com_modid=' . $moduleid . ' ';
     }
-    if ($userid != 0) {
+    if (0 != $userid) {
         $sql .= ' AND com_uid=' . $userid . ' ';
     }
     // because count() returns 1 even if a supplied variable

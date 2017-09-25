@@ -69,7 +69,7 @@ function b_mycomments_show($options)
                         . $comments[$i]->getVar('com_title')
                         . '</a>';
         $com['icon']  = htmlspecialchars($comments[$i]->getVar('com_icon'), ENT_QUOTES);
-        $com['icon']  = ($com['icon'] != '') ? $com['icon'] : 'icon1.gif';
+        $com['icon']  = ('' != $com['icon']) ? $com['icon'] : 'icon1.gif';
         $com['time']  = formatTimestamp($comments[$i]->getVar('com_created'), 'm');
         if ($comments[$i]->getVar('com_uid') > 0) {
             $poster = $memberHandler->getUser($comments[$i]->getVar('com_uid'));
@@ -169,7 +169,7 @@ function b_mycomments2_show($options)
                         . $comments[$i]->getVar('com_title')
                         . '</a>';
         $com['icon']  = htmlspecialchars($comments[$i]->getVar('com_icon'), ENT_QUOTES);
-        $com['icon']  = ($com['icon'] != '') ? $com['icon'] : 'icon1.gif';
+        $com['icon']  = ('' != $com['icon']) ? $com['icon'] : 'icon1.gif';
         $com['time']  = formatTimestamp($comments[$i]->getVar('com_created'), 'm');
         if ($comments[$i]->getVar('com_uid') > 0) {
             $poster = $memberHandler->getUser($comments[$i]->getVar('com_uid'));

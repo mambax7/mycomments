@@ -126,7 +126,7 @@ class MycommentsCommentHandler extends XoopsObjectHandler
                 return $comment;
             }
             $numrows = $this->db->getRowsNum($result);
-            if ($numrows == 1) {
+            if (1 == $numrows) {
                 $comment = new MycommentsComment();
                 $comment->assignVars($this->db->fetchArray($result));
             }
@@ -143,7 +143,7 @@ class MycommentsCommentHandler extends XoopsObjectHandler
      */
     public function insert(XoopsObject $comment)
     {
-        if (strtolower(get_class($comment)) !== 'mycommentscomment') {
+        if ('mycommentscomment' !== strtolower(get_class($comment))) {
             return false;
         }
         if (!$comment->isDirty()) {
@@ -225,7 +225,7 @@ class MycommentsCommentHandler extends XoopsObjectHandler
      */
     public function delete(XoopsObject $comment)
     {
-        if (strtolower(get_class($comment)) !== 'mycommentscomment') {
+        if ('mycommentscomment' !== strtolower(get_class($comment))) {
             return false;
         }
         $sql = sprintf('DELETE FROM %s WHERE com_id = %u', $this->db->prefix('xoopscomments'), $comment->getVar('com_id'));
@@ -252,7 +252,7 @@ class MycommentsCommentHandler extends XoopsObjectHandler
         if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
             $sql   .= ' ' . $criteria->renderWhere();
             $sql   .= ' AND c.com_modid = m.mid';
-            $sort  = ($criteria->getSort() != '') ? $criteria->getSort() : 'com_id';
+            $sort  = ('' != $criteria->getSort()) ? $criteria->getSort() : 'com_id';
             $sql   .= ' ORDER BY ' . $sort . ' ' . $criteria->getOrder();
             $limit = $criteria->getLimit();
             $start = $criteria->getStart();

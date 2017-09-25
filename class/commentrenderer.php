@@ -167,7 +167,7 @@ class MycommentsCommentRenderer
             if (is_object($com_poster)) {
                 $poster['uname']      = '<a href="' . XOOPS_URL . '/userinfo.php?uid=' . $poster['id'] . '">' . $com_poster->getVar('uname') . '</a>';
                 $poster_rank          = $com_poster->rank();
-                $poster['rank_image'] = ($poster_rank['image'] != '') ? $poster_rank['image'] : 'blank.gif';
+                $poster['rank_image'] = ('' != $poster_rank['image']) ? $poster_rank['image'] : 'blank.gif';
                 $poster['rank_title'] = $poster_rank['title'];
                 $poster['avatar']     = $com_poster->getVar('user_avatar');
                 $poster['regdate']    = formatTimestamp($com_poster->getVar('user_regdate'), 's');
@@ -201,7 +201,7 @@ class MycommentsCommentRenderer
     public function _getTitleIcon($icon_image)
     {
         $icon_image = htmlspecialchars(trim($icon_image));
-        if ($icon_image != '') {
+        if ('' != $icon_image) {
             if (false != $this->_doIconCheck) {
                 if (!file_exists(XOOPS_URL . '/images/subject/' . $icon_image)) {
                     return '<img src="' . XOOPS_URL . '/images/icons/no_posticon.gif" alt="">';
@@ -228,7 +228,7 @@ class MycommentsCommentRenderer
     public function _getText($text = '', $uid = 0)
     {
         global $xoopsConfig, $xoopsUser;
-        if ($uid != 0) {
+        if (0 != $uid) {
             $poster = new XoopsUser($uid);
             if (!$poster->isActive()) {
                 $poster = 0;

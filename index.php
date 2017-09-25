@@ -9,7 +9,7 @@ require_once XOOPS_ROOT_PATH . '/modules/mycomments/class/commentrenderer.php';
 require_once XOOPS_ROOT_PATH . '/modules/mycomments/include/comment_constants.php';
 
 $uid = is_object($xoopsUser) ? $xoopsUser->getVar('uid') : 0;
-if ($uid == 0) {
+if (0 == $uid) {
     redirect_header(XOOPS_URL, 2, _NOPERM);
 }
 $uid = isset($_GET['uid']) ? (int)$_GET['uid'] : $uid;
@@ -27,7 +27,7 @@ $limit_array = ['5' => 5, '10' => 10, '20' => 20, '50' => 50, '100' => 100];
 $limit       = (isset($_GET['limit'])
                 && array_key_exists((int)$_GET['limit'], $limit_array)) ? (int)$_GET['limit'] : $d_limit;
 
-if ($uid == 0) {
+if (0 == $uid) {
     redirect_header(XOOPS_URL, 2, _NOPERM);
 }
 
@@ -43,7 +43,7 @@ switch ($xoopsModuleConfig['displayname']) {
         break;
 
     case 2:        // Display full name (if it is not empty)
-        if (xoops_trim($thisuser->getVar('name')) == '') {
+        if ('' == xoops_trim($thisuser->getVar('name'))) {
             $username = $thisuser->getVar('uname');
         } else {
             $username = $thisuser->getVar('name');
@@ -73,7 +73,7 @@ $criteria  = new CriteriaCompo();
 $criteria2 = new CriteriaCompo();
 foreach ($modules as $moduleid => $module) {
     //for comments recieved
-    if ($view == 0) {
+    if (0 == $view) {
         $items = [];
         $items = mycomments_plugin_execute($module->getVar('dirname'), $uid, 'useritems');
         if (is_array($items) && count($items) > 0) {
@@ -102,7 +102,7 @@ foreach ($modules as $moduleid => $module) {
         unset($items);
     }
 }
-if ($view == 1) {
+if (1 == $view) {
     $criteria->add($criteria2);
     $criteria->add(new Criteria('com_uid', $uid));
 }
@@ -122,7 +122,7 @@ $gpermHandler = xoops_getHandler('groupperm');
 $groups       = $xoopsUser ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS;
 $xoopsTpl->assign('xoops_iscommentadmin', $gpermHandler->checkRight('system_admin', 14, $groups));
 
-$count_string = ($com_count != 1) ? _MA_MYCOM_NCOMMENTS : _MA_MYCOM_NCOMMENT;
+$count_string = (1 != $com_count) ? _MA_MYCOM_NCOMMENTS : _MA_MYCOM_NCOMMENT;
 $xoopsTpl->assign('com_count', sprintf($count_string, $com_count));
 
 $com_order = $com_mode = $link_extra = '';
